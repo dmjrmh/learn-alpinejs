@@ -17,6 +17,10 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <!-- end alpine js -->
 
+    <!-- tailwind css -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- endd tailwind css -->
+
     <style>
       body {
         font-family: "Inconsolata", monospace;
@@ -24,8 +28,41 @@
     </style>
   </head>
   <body>
-    <div x-data="{data: 'Hello from x-data Alpine JS'}">
-      <h1 x-text="data"></h1>
+    <div class="flex items-center justify-center h-screen">
+      <form
+        action=""
+        x-data="{
+        email: '',
+        password: '',
+      }"
+        x-on:submit.prevent="console.log(email, password)"
+      >
+        <div class="flex flex-col mb-3">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="rounded-xl px-2 border"
+            placeholder="Email Address"
+            x-model="email"
+          />
+          <span x-text="email"></span>
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="rounded-xl px-2 border mb-3"
+            placeholder="***"
+            x-model="password"
+          />
+          <span x-text="password"></span>
+        </div>
+        <button class="p-2 rounded-xl border">Login</button>
+      </form>
     </div>
   </body>
 </html>
