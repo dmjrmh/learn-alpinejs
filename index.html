@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Alpine JS</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- end google fonts -->
+
+    <!-- alpine js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- end alpine js -->
+
+    <style>
+      body {
+        font-family: "Inconsolata", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div x-data="{data: 'Hello from x-data Alpine JS'}">
+      <h1 x-text="data"></h1>
+    </div>
+  </body>
+</html>
