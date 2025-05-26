@@ -156,5 +156,43 @@
         </table>
       </div>
     </div>
+
+    <div class="flex items-center justiry-center h-screen">
+      <!-- x-show vs x-if -->
+
+      <div x-data="{isShow:false}">
+        <button
+          class="py-2 px-8 rounded-lg bg-teal-100 text-teal-700"
+          x-on:click="isShow = !isShow"
+        >
+          Click Me
+        </button>
+
+        <!-- x-if hanya 1 root element saja | x-show banyak -->
+
+        <template x-if="isShow">
+          <div class="font-semibold">
+            Hey, you
+            <span class="text-red-600">clicked me</span>
+          </div>
+          <div class="font-semibold">
+            Hey, you
+            <span class="text-red-600">clicked me</span>
+          </div>
+          <div class="font-semibold">
+            Hey, you
+            <span class="text-red-600">clicked me</span>
+          </div>
+          <div class="font-semibold">
+            Hey, you
+            <span class="text-red-600">clicked me</span>
+          </div>
+        </template>
+        <p x-show="isShow">Hey, you are clicked Me</p>
+        <p x-show="isShow">Hey, you are clicked Me</p>
+        <p x-show="isShow">Hey, you are clicked Me</p>
+        <p x-show="isShow">Hey, you are clicked Me</p>
+      </div>
+    </div>
   </body>
 </html>
