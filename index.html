@@ -29,7 +29,7 @@
   </head>
   <body>
     <div class="flex items-center justify-center h-screen">
-      <form
+      <!-- <form
         action=""
         x-data="{
         email: '',
@@ -69,7 +69,116 @@
           >
         </div>
         <button class="p-2 rounded-xl border">Login</button>
-      </form>
+      </form> -->
+
+      <!-- x-for -->
+      <!-- <ul
+        x-data="{
+        // people:['Boedi', 'Sukijan', 'Tukijah']
+        people:[{
+          id: 1,
+          name: 'Boedi',
+          age: 21
+        },{
+          id: 2,
+          name: 'Sukijan',
+          age: 22
+        },{
+          id: 3,
+          name: 'Tukijah',
+          age: 20
+        }
+      ]
+      }"
+      >
+        <template x-for="person in people">
+          <li>
+            <p>
+              Nama teman anda adalah
+              <span x-text="person.name" class="font-bold"></span>. Umurnya
+              adalah <span class="font-bold" x-text="person.age"></span>
+            </p>
+          </li>
+        </template>
+      </ul> -->
+      <div class="relative overflow-x-auto">
+        <table
+          x-data="{
+            products: [
+            {
+              id: 1,
+              name: 'MacBook',
+              color: 'Silver',
+              category: 'Laptop',
+              price: 1999,
+              isAvailable: true,
+            },
+            {
+              id: 2,
+              name: 'ROG Ally',
+              color: 'Black',
+              category: 'Handheld',
+              price: 1199,
+              isAvailable: false,
+            },
+            {
+              id: 3,
+              name: 'iPhone 16e',
+              color: 'Titanium',
+              category: 'Smartphone',
+              price: 629,
+              isAvailable: true,
+            }
+          ]
+          }"
+          class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+        >
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          >
+            <tr>
+              <th scope="col" class="px-6 py-3">Product Name</th>
+              <th scope="col" class="px-6 py-3">Color</th>
+              <th scope="col" class="px-6 py-3">Category</th>
+              <th scope="col" class="px-6 py-3">Price</th>
+              <th scope="col" class="px-6 py-3">Available</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="product in products">
+              <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
+                :key="product.id"
+              >
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  x-text="product.name"
+                ></th>
+                <td class="px-6 py-4" x-text="product.color"></td>
+                <td class="px-6 py-4" x-text="product.category"></td>
+                <td class="px-6 py-4" x-text="'$' + product.price"></td>
+                <td class="px-6 py-4">
+                  <template x-if="product.isAvailable">
+                    <div
+                      class="px-6 py-1 rounded-full bg-teal-100 text-teal-700 text-center"
+                    >
+                      Available
+                    </div>
+                  </template>
+                  <template x-if="!product.isAvailable">
+                    <div
+                      class="px-6 py-1 rounded-full bg-red-100 text-red-700 text-center"
+                    >
+                      Out of stock
+                    </div>
+                  </template>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
