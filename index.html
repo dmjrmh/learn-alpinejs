@@ -26,6 +26,7 @@
         font-family: "Inconsolata", monospace;
       }
     </style>
+    <script src="./index.js"></script>
   </head>
   <body>
     <div class="flex items-center justify-center h-screen">
@@ -103,34 +104,7 @@
       </ul> -->
       <div class="relative overflow-x-auto">
         <table
-          x-data="{
-            products: [
-            {
-              id: 1,
-              name: 'MacBook',
-              color: 'Silver',
-              category: 'Laptop',
-              price: 1999,
-              isAvailable: true,
-            },
-            {
-              id: 2,
-              name: 'ROG Ally',
-              color: 'Black',
-              category: 'Handheld',
-              price: 1199,
-              isAvailable: false,
-            },
-            {
-              id: 3,
-              name: 'iPhone 16e',
-              color: 'Titanium',
-              category: 'Smartphone',
-              price: 629,
-              isAvailable: true,
-            }
-          ]
-          }"
+          x-data="table"
           class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
         >
           <thead
@@ -159,20 +133,22 @@
                 <td class="px-6 py-4" x-text="product.category"></td>
                 <td class="px-6 py-4" x-text="'$' + product.price"></td>
                 <td class="px-6 py-4">
-                  <template x-if="product.isAvailable">
-                    <div
-                      class="px-6 py-1 rounded-full bg-teal-100 text-teal-700 text-center"
-                    >
-                      Available
-                    </div>
-                  </template>
-                  <template x-if="!product.isAvailable">
-                    <div
-                      class="px-6 py-1 rounded-full bg-red-100 text-red-700 text-center"
-                    >
-                      Out of stock
-                    </div>
-                  </template>
+                  <!-- <template x-if="product.isAvailable"> -->
+                  <div
+                    class="px-6 py-1 rounded-full bg-teal-100 text-teal-700 text-center"
+                    x-show="product.isAvailable"
+                  >
+                    Available
+                  </div>
+                  <!-- </template> -->
+                  <!-- <template x-if="!product.isAvailable"> -->
+                  <div
+                    class="px-6 py-1 rounded-full bg-red-100 text-red-700 text-center"
+                    x-show="!product.isAvailable"
+                  >
+                    Out of stock
+                  </div>
+                  <!-- </template> -->
                 </td>
               </tr>
             </template>
